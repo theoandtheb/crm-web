@@ -1,6 +1,9 @@
 <h1>Contacts</h1>
-<p>Main menu</p>
+<p>All Contacts</p>
 <ul>
-  <li><a href="/contacts/:id">CONTACT TO GO HERE</a></li>
-  <!-- please complete me with links to other actions -->
+  <% @@rolodex.contacts.each do |contact| %>
+  <li> Name:  <%= contact.first_name %> <%= contact.last_name %><br>
+     Email:  <%= contact.email %><br>
+	Note:  <%= contact.note %></li>
+  <%end%>
 </ul>

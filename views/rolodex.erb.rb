@@ -5,6 +5,9 @@ class Rolodex
 		@contacts = Array.new
 	end
 
+	def contacts
+		@contacts
+	end
 
 	def addContact(contact)
 		contact.id = @id
