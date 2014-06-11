@@ -1,9 +1,26 @@
-<h1>Create New Contact</h1>
+<p>Create New Contact</p>
 
 <form action="/contacts" method="post">
-		<input type="text" name="first_name">
-		<input type="text" name="last_name">
-		<input type="text" name="email">
-		<input type="text" name="note">
-		<input type="submit" name="Submit">
+	<table>
+		<tr>
+			<td class="inputKey">First Name:</td>
+			<td><input type="text" name="first_name"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Last Name:</td>
+			<td><input type="text" name="last_name"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Email:</td>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Note:</td>
+			<td><input type="text" name="note"></td>
+		</tr>
+		<td colspan="2">
+			<input type="submit" name="Submit">
+		</td>
+	</table>
+				
 </form>

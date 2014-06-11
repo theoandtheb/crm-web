@@ -1,9 +1,8 @@
-<h1>Contacts</h1>
 <p>All Contacts</p>
 <ul>
   <% @@rolodex.contacts.each do |contact| %>
   <li> Name:  <%= contact.first_name %> <%= contact.last_name %><br>
      Email:  <%= contact.email %><br>
-	Note:  <%= contact.note %></li>
+	Note:  <%= contact.note %></li><br>
   <%end%>
 </ul>
