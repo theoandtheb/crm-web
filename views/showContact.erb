@@ -1,0 +1,6 @@
+<h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
+<p><strong>Email:</strong> <%= @contact.email %></p>
+<p><strong>Note:</strong></p>
+<p><%= @contact.note %></p>
+<div class = "modDelete"><a href="/contacts/<%= @contact.id %>/modify" class = "modDelete">Modify This Contact</a></div>
+<div class = "modDelete"><a href="/contacts/<%= @contact.id %>/destroy" class = "modDelete">Remove This Contact</a></div>

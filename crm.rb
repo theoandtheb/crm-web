@@ -1,5 +1,3 @@
-require_relative 'rolodex'
-
 require 'sinatra'
 require 'data_mapper'
 
@@ -18,7 +16,6 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-@@rolodex = Rolodex.new
 
 get '/' do
 	@crm_app_name = "My CRM"
@@ -36,12 +33,48 @@ post '/contacts' do
 end
 
 get '/contacts' do
+	@contacts = Contact.all
 	erb :contacts
 end
 
 get '/contacts/:id' do
-	@contact = @@rolodex.find(:id)
+	@contact = Contact.get(params[:id].to_i) #Try this with out to_i.  The DB has defined this as an integer.
+	if @contact
+		erb :showContact
+	else
+		raise Sinatra::NotFound
+	end
 end
+
+
+get '/contacts/:id/modify' do
+	@contact = Contact.get(params[:id].to_i) #Try this with out to_i.  The DB has defined this as an integer.
+	if @contact
+		erb :modifyContact
+	else
+		raise Sinatra::NotFound
+	end
+end
+
+put "/contacts/:id" do
+	@contact = Contact.get(params[:id].to_i)
+	@contact.update(
+		:first_name => params[:first_name],
+		:last_name => params[:last_name],
+		:email => params[:email],
+		:note => params[:note]
+		)
+
+		redirect to("/contacts")
+end
+
+get '/contacts/:id/destroy' do
+	@contact = Contact.get(params[:id].to_i)
+	@contact.destroy
+
+	redirect to("/contacts")
+end
+
 	
 # def sleepForSleepsSake
 # 	sleep 0.1

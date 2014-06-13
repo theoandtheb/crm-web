@@ -1,0 +1,27 @@
+<p>Modify Existing Contact</p>
+
+<form action="/contacts/<%= @contact.id %>" method="post">
+	<input type="hidden" name="_method" value="put">
+	<table>
+		<tr>
+			<td class="inputKey">First Name:</td>
+			<td><input type="text" name="first_name" value="<%= @contact.first_name %>"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Last Name:</td>
+			<td><input type="text" name="last_name" value="<%= @contact.last_name %>"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Email:</td>
+			<td><input type="text" name="email" value="<%= @contact.email %>"></td>
+		</tr>
+		<tr>
+			<td class="inputKey">Note:</td>
+			<td><input type="text" name="note" value="<%= @contact.note %>"></td>
+		</tr>
+		<td colspan="2">
+			<input type="submit" name="Submit">
+		</td>
+	</table>
+				
+</form>
